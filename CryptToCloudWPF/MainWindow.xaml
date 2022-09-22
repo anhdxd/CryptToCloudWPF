@@ -3,6 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
         xmlns:local="clr-namespace:CryptToCloudWPF"
         mc:Ignorable="d"
         Title="MainWindow"
@@ -12,29 +13,41 @@
         AllowsTransparency="True"
         Background="Transparent">
 
-    <Border Opacity="0.9"
+    <Border Opacity="0.95"
             Background="#272537"
             CornerRadius="20"
             MouseDown="Border_MouseDown"
             MouseLeftButtonDown="Border_MouseLeftButtonDown">
         <Grid>
+            <!--Define column-->
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="250" />
-                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
                 <RowDefinition Height="50" />
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
-            <StackPanel Margin="1,0,649,28"
-                        Grid.Row="1"
-                        Grid.ColumnSpan="2">
+
+            <!-- *************************************** Button and body *************************************** -->
+            
+            <!--Close Button-->
+            <Button x:Name="btn_Close"
+                        Content="X"
+                        Click="btn_Close_Click"
+                        Style="{StaticResource Close_Button}" Margin="609,7,6,8" Grid.Column="1" FontSize="14"/>
+
+            <!--Login Pane-->
+            <StackPanel Grid.Row="1" Grid.Column="0">
                 <Button Name="btn_LoginOneDrive"
                         Content="Microsoft OneDrive"
                         Click="btn_LoginOneDrive_Click"
                         Style="{StaticResource LeftMenu_Button}" />
-
+                <Button Name="btn_LoginGoogleDrive" Content="Google Drive" Style="{StaticResource LeftMenu_Button}"/>
             </StackPanel>
+            
+            <!--Show List File Pane-->
+            <StackPanel Grid.Column="1" Grid.Row="1"/>
         </Grid>
     </Border>
 </Window>    
